@@ -45,4 +45,16 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         tools:text="6h" />
+
+    <ImageView
+        android:id="@+id/ivMedia"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBody"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        tools:srcCompat="@tools:sample/avatars" />
 </RelativeLayout>

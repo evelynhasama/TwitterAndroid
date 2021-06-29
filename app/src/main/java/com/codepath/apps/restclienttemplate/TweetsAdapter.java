@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.FitCenter;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import org.jetbrains.annotations.NotNull;
@@ -64,19 +67,29 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvBody;
         TextView tvScreenName;
         TextView tvRelTime;
+        ImageView ivMedia;
+
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             tvBody = itemView.findViewById(R.id.tvBody);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvRelTime = itemView.findViewById(R.id.tvRelTime);
+            ivMedia = itemView.findViewById(R.id.ivMedia);
         }
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
-            Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+            Glide.with(context).load(tweet.user.profileImageUrl).transform(new FitCenter(), new RoundedCorners(10)).into(ivProfileImage);
             tvRelTime.setText(getRelativeTimeAgo(tweet.createdAt));
+
+            if (tweet.imageUrl != ""){
+                ivMedia.setVisibility(View.VISIBLE);
+                Glide.with(context).load(tweet.imageUrl).transform(new FitCenter(), new RoundedCorners(25)).into(ivMedia);
+            } else {
+                ivMedia.setVisibility(View.GONE);
+            }
         }
 
     }
