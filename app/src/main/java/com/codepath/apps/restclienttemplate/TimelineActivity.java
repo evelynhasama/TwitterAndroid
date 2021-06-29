@@ -38,7 +38,6 @@ public class TimelineActivity extends AppCompatActivity {
     RecyclerView rvTweets;
     List<Tweet> tweets;
     TweetsAdapter adapter;
-    Button btnLogout;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
@@ -56,16 +55,6 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.setLayoutManager(new LinearLayoutManager(this));
         rvTweets.setAdapter(adapter);
         populateHomeTimeline();
-
-        btnLogout = findViewById(R.id.btnLogout);
-        // logs user out on click
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                client.clearAccessToken();
-                finish();
-            }
-        });
     }
 
     @Override
@@ -82,6 +71,10 @@ public class TimelineActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ComposeActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
             return true;
+        } if (item.getItemId() == R.id.logout){
+            // logout selected
+            client.clearAccessToken();
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
