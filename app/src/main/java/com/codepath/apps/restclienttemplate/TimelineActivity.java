@@ -109,6 +109,10 @@ public class TimelineActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // inflate menu
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_launcher_twitter);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setTitle(" Home");
         return true;
     }
 

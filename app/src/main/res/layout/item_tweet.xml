@@ -24,6 +24,8 @@
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:text="TextView"
+        android:textColor="@color/twitter_blue_fill_pressed"
+        android:textStyle="bold"
         tools:text="rpandey1234" />
 
     <TextView
