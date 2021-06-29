@@ -1,6 +1,8 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Movie;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import org.jetbrains.annotations.NotNull;
+import org.parceler.Parcels;
 import org.w3c.dom.Text;
 
 import java.text.ParseException;
@@ -61,13 +64,14 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     }
 
     // define viewholder
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView ivProfileImage;
         TextView tvBody;
         TextView tvScreenName;
         TextView tvRelTime;
         ImageView ivMedia;
+        TextView tvUserhandle;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -76,11 +80,14 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvRelTime = itemView.findViewById(R.id.tvRelTime);
             ivMedia = itemView.findViewById(R.id.ivMedia);
+            tvUserhandle = itemView.findViewById(R.id.tvUserhandle);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
-            tvScreenName.setText(tweet.user.screenName);
+            tvScreenName.setText(tweet.user.name);
+            tvUserhandle.setText("@" + tweet.user.screenName);
             Glide.with(context).load(tweet.user.profileImageUrl).transform(new FitCenter(), new RoundedCorners(10)).into(ivProfileImage);
             tvRelTime.setText(getRelativeTimeAgo(tweet.createdAt));
 
@@ -92,6 +99,18 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             }
         }
 
+        @Override
+        public void onClick(View view) {
+            // gets item position
+            int position = getAdapterPosition();
+            // make sure the position is valid, i.e. actually exists in the view
+            if (position != RecyclerView.NO_POSITION) {
+                Tweet tweet = tweets.get(position);
+                Intent intent = new Intent(context, TweetDetailsActivity.class);
+                intent.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
+                context.startActivity(intent);
+            }
+        }
     }
 
     public String getRelativeTimeAgo(String rawJsonDate) {

@@ -24,7 +24,7 @@
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:text="TextView"
-        android:textColor="@color/twitter_blue_fill_pressed"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         tools:text="rpandey1234" />
 
@@ -44,8 +44,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="00dp"
         android:layout_marginRight="5dp"
+        android:textSize="12sp"
         tools:text="6h" />
 
     <ImageView
@@ -59,4 +60,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvUserhandle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/tvScreenName"
+        android:textSize="12sp"
+        tools:text="someone" />
 </RelativeLayout>
