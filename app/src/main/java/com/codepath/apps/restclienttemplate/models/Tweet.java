@@ -1,5 +1,7 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +17,7 @@ public class Tweet {
     public String createdAt;
     public User user;
     public String imageUrl;
+    public ArrayList<String> media;
 
     // empty constructer for parcel
     public Tweet(){}
@@ -25,13 +28,25 @@ public class Tweet {
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         JSONObject entity = jsonObject.getJSONObject("entities");
+
         if (entity.has("media")) {
-            JSONArray media = entity.
+            JSONArray tempmedia = entity.
                     getJSONArray("media");
-            tweet.imageUrl = media.getJSONObject(0).getString("media_url_https");
+            int i = 0;
+            ArrayList<String> tempMediaArray = new ArrayList<>();
+            while (i < tempmedia.length()){
+                if (i == 0){
+                    tweet.imageUrl = tempmedia.getJSONObject(0).getString("media_url_https");
+                }
+
+                tempMediaArray.add(tempmedia.getJSONObject(i).getString("media_url_https"));
+                i++;
+            }
+            tweet.media = tempMediaArray;
         } else {
             tweet.imageUrl = "";
         }
+        Log.d("TweetClass", tweet.imageUrl);
         return tweet;
     }
 
