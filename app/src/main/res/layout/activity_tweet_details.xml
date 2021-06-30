@@ -37,7 +37,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivProfilePic"
-        tools:text="@evelynhasama" />
+        tools:text="evelynhasama" />
 
     <TextView
         android:id="@+id/tvTweetBody"
@@ -51,7 +51,8 @@
         android:layout_marginEnd="20dp"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        tools:text="I wanna cuddle with Fiona right now, cuz she is the cutust doggo." />
+        tools:text="I wanna cuddle with Fiona right now, cuz she is the cutust doggo."
+        android:autoLink="web" />
 
     <TextView
         android:id="@+id/tvDateTime"
