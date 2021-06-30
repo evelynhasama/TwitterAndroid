@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -12,6 +12,15 @@
         <item name="colorOnPrimary">@color/twitter_blue_50</item>
 
         <item name="colorAccent">@color/twitter_blue_fill_pressed</item>
+
+    </style>
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/twitter_blue</item>
+        <item name="colorPrimaryVariant">@color/twitter_blue_30</item>
+        <item name="colorOnPrimary">@color/twitter_blue_50</item>
+
+        <item name="colorAccent">@color/twitter_blue_fill_pressed</item>
+        <item name='colorPrimaryDark'>@android:color/black</item>
     </style>
 
     <!-- Application theme. -->

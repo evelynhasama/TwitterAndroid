@@ -45,6 +45,7 @@ public class Tweet {
             tweet.media = tempMediaArray;
         } else {
             tweet.imageUrl = "";
+            tweet.media = new ArrayList<>();
         }
         Log.d("TweetClass", tweet.imageUrl);
         return tweet;

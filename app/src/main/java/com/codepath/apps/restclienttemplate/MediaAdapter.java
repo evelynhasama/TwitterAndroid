@@ -48,6 +48,9 @@ public class MediaAdapter extends  RecyclerView.Adapter<MediaAdapter.ViewHolder>
 
     @Override
     public int getItemCount() {
+        if (mediaUrls.isEmpty()){
+                return 0;
+        }
         return mediaUrls.size();
     }
 
