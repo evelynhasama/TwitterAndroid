@@ -41,7 +41,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] User can view a profile's name, banner, profile picture, bio
+* [x] User can view a profile's name, banner, profile picture, bio, followers and following count
+* [x] User can view the favorite and retweet counts for each tweet on the home feed 
 
 ## Video Walkthrough
 
