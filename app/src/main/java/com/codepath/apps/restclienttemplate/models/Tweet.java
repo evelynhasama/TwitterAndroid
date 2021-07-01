@@ -18,13 +18,23 @@ public class Tweet {
     public User user;
     public String imageUrl;
     public ArrayList<String> media;
+    public int retweetCount;
+    public int heartCount;
 
     // empty constructer for parcel
     public Tweet(){}
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
-        tweet.body = jsonObject.getString("text");
+
+        if(jsonObject.has("full_text")) {
+            tweet.body = jsonObject.getString("full_text");
+        } else {
+            tweet.body = jsonObject.getString("text");
+        }
+
+        tweet.heartCount = jsonObject.getInt("favorite_count");
+        tweet.retweetCount = jsonObject.getInt("retweet_count");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         JSONObject entity = jsonObject.getJSONObject("entities");

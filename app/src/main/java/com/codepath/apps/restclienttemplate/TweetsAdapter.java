@@ -69,6 +69,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvRelTime;
         ImageView ivMedia;
         TextView tvUserhandle;
+        TextView tvHeartCount;
+        TextView tvRetweetCount;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -78,6 +80,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvRelTime = itemView.findViewById(R.id.tvRelTime);
             ivMedia = itemView.findViewById(R.id.ivMedia);
             tvUserhandle = itemView.findViewById(R.id.tvUserUsername);
+            tvRetweetCount = itemView.findViewById(R.id.tvRetweetCount);
+            tvHeartCount = itemView.findViewById(R.id.tvHeartCount);
             itemView.setOnClickListener(this);
         }
 
@@ -87,6 +91,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvUserhandle.setText("@" + tweet.user.screenName);
             Glide.with(context).load(tweet.user.profileImageUrl).transform(new FitCenter(), new RoundedCorners(10)).into(ivProfileImage);
             tvRelTime.setText(getRelativeTimeAgo(tweet.createdAt));
+            tvHeartCount.setText(String.valueOf(tweet.heartCount));
+            tvRetweetCount.setText(String.valueOf(tweet.retweetCount));
 
             if (tweet.imageUrl != ""){
                 ivMedia.setVisibility(View.VISIBLE);

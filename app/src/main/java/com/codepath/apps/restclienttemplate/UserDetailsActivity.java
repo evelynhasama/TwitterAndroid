@@ -23,6 +23,8 @@ public class UserDetailsActivity extends AppCompatActivity {
     ImageView ivProfilePicture;
     ImageView ivProfileBanner;
     ImageView ivVerified;
+    TextView tvFollowersCount;
+    TextView tvFollowingCount;
     User user;
 
     @Override
@@ -40,12 +42,16 @@ public class UserDetailsActivity extends AppCompatActivity {
         ivProfileBanner = findViewById(R.id.ivProfileBanner);
         ivVerified = findViewById(R.id.ivVerified);
         ivProfilePicture = findViewById(R.id.ivProfilePicture);
+        tvFollowersCount = findViewById(R.id.tvFollowersCount);
+        tvFollowingCount = findViewById(R.id.tvFollowingCount);
 
         user = (User) Parcels.unwrap(getIntent().getParcelableExtra(User.class.getSimpleName()));
 
         tvDescription.setText(user.description);
         tvUserName.setText(user.screenName);
         tvNameName.setText(user.name);
+        tvFollowersCount.setText(String.valueOf(user.followersCount));
+        tvFollowingCount.setText(String.valueOf(user.friendsCount));
 
         Glide.with(this).load(user.profileImageUrl).circleCrop().into(ivProfilePicture);
         Glide.with(this).load(user.bannerImageUrl).placeholder(R.color.twitter_blue_30).centerCrop().into(ivProfileBanner);
