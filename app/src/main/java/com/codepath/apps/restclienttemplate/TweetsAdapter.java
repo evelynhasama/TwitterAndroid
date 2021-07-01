@@ -2,7 +2,6 @@ package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Movie;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import org.jetbrains.annotations.NotNull;
 import org.parceler.Parcels;
-import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -75,12 +72,12 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
-            tvBody = itemView.findViewById(R.id.tvBody);
-            tvScreenName = itemView.findViewById(R.id.tvScreenName);
+            ivProfileImage = itemView.findViewById(R.id.ivUserProfileImage);
+            tvBody = itemView.findViewById(R.id.tvUserDescription);
+            tvScreenName = itemView.findViewById(R.id.tvUserNameName);
             tvRelTime = itemView.findViewById(R.id.tvRelTime);
             ivMedia = itemView.findViewById(R.id.ivMedia);
-            tvUserhandle = itemView.findViewById(R.id.tvUserhandle);
+            tvUserhandle = itemView.findViewById(R.id.tvUserUsername);
             itemView.setOnClickListener(this);
         }
 

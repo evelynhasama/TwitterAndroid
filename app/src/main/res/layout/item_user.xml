@@ -36,30 +36,8 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivUserProfileImage"
+        android:singleLine="true"
         tools:text="This is my tweet!" />
-
-    <TextView
-        android:id="@+id/tvRelTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="00dp"
-        android:layout_marginRight="5dp"
-        android:textSize="12sp"
-        tools:text="6h" />
-
-    <ImageView
-        android:id="@+id/ivMedia"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUserDescription"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="5dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvUserUsername"
@@ -70,5 +48,7 @@
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/tvUserNameName"
         android:textSize="12sp"
-        tools:text="someone" />
+        tools:text="someone"
+        android:ellipsize="end"/>
+
 </RelativeLayout>

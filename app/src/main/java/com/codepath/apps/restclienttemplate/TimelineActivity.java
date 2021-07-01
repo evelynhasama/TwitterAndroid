@@ -96,8 +96,7 @@ public class TimelineActivity extends AppCompatActivity {
                 // ...the data has come back, add new items to your adapter...
                 JSONArray jsonArray = json.jsonArray;
                 try {
-                    tweets.addAll(Tweet.fromJsonArray(jsonArray));
-                    adapter.notifyDataSetChanged();
+                    adapter.addAll(Tweet.fromJsonArray(jsonArray));
                 } catch (JSONException e) {
                     Log.d(TAG, "Json exception", e);
                 }
