@@ -65,14 +65,12 @@ public class PageFragment extends Fragment {
             following = new ArrayList<>();
             getFollowing(mUserId);
         }
-        Log.d(TAG, "onCreate");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment, container, false);
-        Log.d(TAG, "Inflating layout");
 
         RecyclerView rvUsers = view.findViewById(R.id.rvUsers);
 
