@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.format.DateUtils;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +32,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
     Context context;
     List<Tweet> tweets;
+    private final int REQUEST_CODE = 20;
 
     // pass in context and list of tweets
     public TweetsAdapter(Context context, List<Tweet> tweets){
@@ -71,6 +74,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvUserhandle;
         TextView tvHeartCount;
         TextView tvRetweetCount;
+        ImageView ivReply;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -82,7 +86,24 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvUserhandle = itemView.findViewById(R.id.tvUserUsername);
             tvRetweetCount = itemView.findViewById(R.id.tvRetweetCount);
             tvHeartCount = itemView.findViewById(R.id.tvHeartCount);
+            ivReply = itemView.findViewById(R.id.ivReply);
             itemView.setOnClickListener(this);
+
+            ivReply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Tweet tweet = tweets.get(position);
+                        Toast.makeText(context, "Reply to: @" + tweet.user.screenName ,Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(context, ComposeActivity.class);
+                        intent.putExtra("username", tweet.user.screenName);
+                        ((Activity) context).startActivityForResult(intent,REQUEST_CODE);
+                        //
+
+                    }
+                }}
+                );
         }
 
         public void bind(Tweet tweet) {

@@ -30,7 +30,9 @@ public class User {
         user.followersCount = jsonObject.getInt("followers_count");
         user.friendsCount = jsonObject.getInt("friends_count");
         user.verified = jsonObject.getBoolean("verified");
-        user.bannerImageUrl = jsonObject.getString("profile_banner_url");
+        if (jsonObject.has("profile_banner_url")){
+            user.bannerImageUrl = jsonObject.getString("profile_banner_url");
+        }
         user.userId = jsonObject.getInt("id");
 
         return user;

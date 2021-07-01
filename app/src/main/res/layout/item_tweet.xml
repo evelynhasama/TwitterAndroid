@@ -59,8 +59,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivUserProfileImage"
-        tools:text="This is my tweet!"
-        android:autoLink="web"/>
+        tools:text="This is my tweet!" />
 
     <TextView
         android:id="@+id/tvRelTime"
@@ -117,4 +116,15 @@
         android:text="TextView"
         android:textSize="12sp"
         tools:text="20" />
+
+    <ImageView
+        android:id="@+id/ivReply"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/ivMedia"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="70dp"
+        android:background="@android:drawable/ic_menu_revert"
+        android:backgroundTint="@android:color/black" />
 </RelativeLayout>

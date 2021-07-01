@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -38,9 +39,12 @@ public class ComposeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(" Compose");
 
         client = TwitterApplication.getRestClient(this);
-
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+
+        if (getIntent().hasExtra("username")){
+            etCompose.setText('@'+getIntent().getStringExtra("username")+ " ", TextView.BufferType.EDITABLE);
+        }
 
         // set button click listener
         btnTweet.setOnClickListener(new View.OnClickListener() {
