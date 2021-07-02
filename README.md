@@ -48,13 +48,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/evelynhasama/TwitterAndroid/blob/master/walkthroughs/walk1.gif' title='Video Walkthrough 1' width='300' alt='Video Walkthrough 1' /> <img src='https://github.com/evelynhasama/TwitterAndroid/blob/master/walkthroughs/walk2.gif' title='Video Walkthrough 2' width='300' alt='Video Walkthrough 2' /> <img src='https://github.com/evelynhasama/TwitterAndroid/blob/master/walkthroughs/walk3.gif' title='Video Walkthrough 3' width='300' alt='Video Walkthrough 3' />
 
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Some challenges I faced were with the additional/optional stories, particularly displaying the followers/following users and replying to a tweet. With followers/following users, I used a TabLayout and PageFragments which I were new to me and required much debugging. Replying to a tweet challenged me, as I was not certain how to start the Compose Activity for a result when the reply icon on the tweet was clicked in the recycler view.
 
 ## Open-source libraries used
 
